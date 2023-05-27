@@ -1,7 +1,5 @@
 import os
-
 from flask import Flask, jsonify, request
-
 from main import loopthread
 
 app = Flask(__name__)
@@ -15,10 +13,9 @@ def bypass():
     response_data = {"query": url, "bypassed_url": bypass}
     return jsonify(response_data)
 
-
 @app.route("/")
 def home():
-    return "Site Running"
+    return jsonify({"status": "running"})
 
 
 if __name__ == "__main__":

@@ -1,13 +1,10 @@
 import re
-
 import bypasser
 import ddl
 from ddl import ddllist
 from scraper import scrapper, scrapper_sites
 
-# handle ineex
-
-
+# handle index
 def handleIndex(ele):
     return bypasser.scrapeIndex(ele)
 
@@ -18,7 +15,7 @@ def loopthread(url):
         return
 
     urls = []
-    for ele in url.split():
+    for ele in url.split("|"):
         if "http://" in ele or "https://" in ele:
             urls.append(ele)
     if len(urls) == 0:
@@ -31,7 +28,7 @@ def loopthread(url):
     else:
         pass
 
-    link = ""
+    link = []
     for ele in urls:
         if re.search(r"https?:\/\/(?:[\w.-]+)?\.\w+\/\d+:", ele):
             return handleIndex(ele)
@@ -51,5 +48,5 @@ def loopthread(url):
             except Exception as e:
                 temp = "**Error**: " + str(e)
         if temp is not None:
-            link = link + temp + " "
+            link.append(temp)
     return link
