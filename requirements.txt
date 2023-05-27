@@ -1,0 +1,13 @@
+beautifulsoup4
+bs4
+cfscrape
+chromedriver_autoinstaller
+cloudscraper
+Flask==2.2.5
+gunicorn
+lk21
+lxml
+PyBypass
+python-dotenv
+requests
+selenium==4.4.3
